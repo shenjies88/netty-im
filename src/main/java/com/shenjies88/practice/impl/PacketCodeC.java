@@ -58,10 +58,26 @@ public class PacketCodeC  {
     }
 
     private Serializer getSerializer(byte serializeAlgorithm) {
-        return  new JSONSerializer();
+        switch (serializeAlgorithm) {
+            case 1:
+                return new JSONSerializer();
+            default:
+                return new JSONSerializer();
+        }
     }
 
     private Class<? extends Packet> getRequestType(byte command) {
-        return command == 1 ? LoginRequestPacket.class : LoginResponsePacket.class;
+        switch (command) {
+            case 1:
+                return LoginRequestPacket.class;
+            case 2:
+                return LoginResponsePacket.class;
+            case 3:
+                return MessageRequestPacket.class;
+            case 4:
+                return MessageResponsePacket.class;
+            default:
+                return Packet.class;
+        }
     }
 }
