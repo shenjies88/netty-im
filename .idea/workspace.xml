@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b00d904f-b3a0-46b5-9453-ebf249639d0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/FirstClientHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/FirstServerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/impl/JSONSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/impl/LoginRequestPacket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/impl/LoginResponsePacket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/impl/PacketCodeC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/interfaces/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/interfaces/Packet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/interfaces/Serializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/interfaces/SerializerAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/FirstClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/handler/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/FirstServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/handler/ServerHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/NettyClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/NettyClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/NettyServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shenjies88/practice/NettyServer.java" afterDir="false" />
     </list>
@@ -43,6 +51,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
@@ -51,13 +68,13 @@
       <recent name="com.shenjies88.practice" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.NettyServer">
+  <component name="RunManager" selected="Application.NettyClient">
     <configuration name="NettyClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.shenjies88.practice.NettyClient" />
       <module name="netty-im" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.shenjies88.practice.*" />
+          <option name="PATTERN" value="com.shenjies88.practice.interfaces.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -70,7 +87,7 @@
       <module name="netty-im" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.shenjies88.practice.*" />
+          <option name="PATTERN" value="com.shenjies88.practice.interfaces.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,7 +112,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583734955885</updated>
-      <workItem from="1583734958185" duration="1284000" />
+      <workItem from="1583734958185" duration="4147000" />
     </task>
     <servers />
   </component>
@@ -103,25 +120,66 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1583736085175">
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1583739767479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583736085175" />
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom" timestamp="1583736334977">
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583739767479" />
+    <state width="1877" height="325" key="GridCell.Tab.0.bottom" timestamp="1583740261000">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583736334977" />
-    <state width="1877" height="261" key="GridCell.Tab.0.center" timestamp="1583736334977">
+    <state width="1877" height="325" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583740261000" />
+    <state width="1877" height="325" key="GridCell.Tab.0.center" timestamp="1583740261000">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583736334977" />
-    <state width="1877" height="261" key="GridCell.Tab.0.left" timestamp="1583736334976">
+    <state width="1877" height="325" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583740261000" />
+    <state width="1877" height="325" key="GridCell.Tab.0.left" timestamp="1583740261000">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583736334976" />
-    <state width="1877" height="261" key="GridCell.Tab.0.right" timestamp="1583736334977">
+    <state width="1877" height="325" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583740261000" />
+    <state width="1877" height="325" key="GridCell.Tab.0.right" timestamp="1583740261000">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583736334977" />
+    <state width="1877" height="325" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583740261000" />
+    <state width="1877" height="325" key="GridCell.Tab.1.bottom" timestamp="1583740260839">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="325" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583740260839" />
+    <state width="1877" height="325" key="GridCell.Tab.1.center" timestamp="1583740260839">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="325" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583740260839" />
+    <state width="1877" height="325" key="GridCell.Tab.1.left" timestamp="1583740260839">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="325" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583740260839" />
+    <state width="1877" height="325" key="GridCell.Tab.1.right" timestamp="1583740260839">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="325" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583740260839" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1583738529207">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1583738529207" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/shenjies88/practice/handler/ClientHandler.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/shenjies88/practice/handler/ServerHandler.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/shenjies88/practice/handler/ClientHandler.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
