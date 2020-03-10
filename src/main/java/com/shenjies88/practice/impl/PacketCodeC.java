@@ -73,6 +73,16 @@ public class PacketCodeC  {
                 return CreateGroupRequestPacket.class;
             case 6:
                 return CreateGroupResponsePacket.class;
+            case 7:
+                return QuitGroupRequestPacket.class;
+            case 8:
+                return QuitGroupResponsePacket.class;
+            case 9:
+                return JoinGroupRequestPacket.class;
+            case 10:
+                return JoinGroupResponsePacket.class;
+            case 11:
+                return ListGroupMembersRequestPacket.class;
             default:
                 return Packet.class;
         }

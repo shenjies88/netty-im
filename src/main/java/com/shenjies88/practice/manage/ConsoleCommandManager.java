@@ -1,9 +1,7 @@
 
 package com.shenjies88.practice.manage;
 
-import com.shenjies88.practice.command.CreateGroupConsoleCommand;
-import com.shenjies88.practice.command.LogoutConsoleCommand;
-import com.shenjies88.practice.command.SendToUserConsoleCommand;
+import com.shenjies88.practice.command.*;
 import com.shenjies88.practice.interfaces.ConsoleCommand;
 import io.netty.channel.Channel;
 
@@ -18,6 +16,8 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap = new HashMap<>();
         consoleCommandMap.put("sendToUser", new SendToUserConsoleCommand());
         consoleCommandMap.put("logout", new LogoutConsoleCommand());
+        consoleCommandMap.put("joinGroup", new JoinGroupConsoleCommand());
+        consoleCommandMap.put("listGroupMembers", new ListGroupMembersConsoleCommand());
         consoleCommandMap.put("createGroup", new CreateGroupConsoleCommand());
     }
 

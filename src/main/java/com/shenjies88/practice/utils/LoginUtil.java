@@ -3,6 +3,7 @@ package com.shenjies88.practice.utils;
 import com.shenjies88.practice.impl.Session;
 import com.shenjies88.practice.interfaces.Attributes;
 import io.netty.channel.Channel;
+import io.netty.channel.group.ChannelGroup;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -40,5 +41,10 @@ public class LoginUtil {
 
     public static Channel getChannel(String toUserId) {
         return userIdChannelMap.get(toUserId);
+    }
+
+    //TODO 根据群id获取群管道
+    public static ChannelGroup getChannelGroup(String groupId) {
+        return null;
     }
 }
