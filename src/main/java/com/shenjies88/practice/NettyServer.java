@@ -1,6 +1,9 @@
 package com.shenjies88.practice;
 
-import com.shenjies88.practice.handler.ServerHandler;
+import com.shenjies88.practice.handler.LoginRequestHandler;
+import com.shenjies88.practice.handler.MessageRequestHandler;
+import com.shenjies88.practice.handler.PacketDecoder;
+import com.shenjies88.practice.handler.PacketEncoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -18,7 +21,10 @@ public class NettyServer {
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     protected void initChannel(NioSocketChannel ch) {
-                        ch.pipeline().addLast(new ServerHandler());
+                        ch.pipeline().addLast(new PacketDecoder());
+                        ch.pipeline().addLast(new LoginRequestHandler());
+                        ch.pipeline().addLast(new MessageRequestHandler());
+                        ch.pipeline().addLast(new PacketEncoder());
                     }
                 }).bind(8000);
     }

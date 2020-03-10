@@ -1,6 +1,9 @@
 package com.shenjies88.practice;
 
-import com.shenjies88.practice.handler.ClientHandler;
+import com.shenjies88.practice.handler.LoginResponseHandler;
+import com.shenjies88.practice.handler.MessageResponseHandler;
+import com.shenjies88.practice.handler.PacketDecoder;
+import com.shenjies88.practice.handler.PacketEncoder;
 import com.shenjies88.practice.impl.MessageRequestPacket;
 import com.shenjies88.practice.impl.PacketCodeC;
 import com.shenjies88.practice.utils.LoginUtil;
@@ -24,7 +27,10 @@ public class NettyClient {
                 .channel(NioSocketChannel.class)
                 .handler(new ChannelInitializer<SocketChannel>() {
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new ClientHandler());
+                        ch.pipeline().addLast(new PacketDecoder());
+                        ch.pipeline().addLast(new LoginResponseHandler());
+                        ch.pipeline().addLast(new MessageResponseHandler());
+                        ch.pipeline().addLast(new PacketEncoder());
                     }
                 });
 
@@ -47,7 +53,7 @@ public class NettyClient {
 
                     MessageRequestPacket packet = new MessageRequestPacket();
                     packet.setMessage(line);
-                    ByteBuf byteBuf = PacketCodeC.INSTANCE.encode(channel.alloc(), packet);
+                    ByteBuf byteBuf = PacketCodeC.INSTANCE.encode(channel.alloc().buffer(), packet);
                     channel.writeAndFlush(byteBuf);
                 }
             }

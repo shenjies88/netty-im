@@ -3,7 +3,6 @@ package com.shenjies88.practice.impl;
 import com.shenjies88.practice.interfaces.Packet;
 import com.shenjies88.practice.interfaces.Serializer;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufAllocator;
 
 public class PacketCodeC  {
 
@@ -11,20 +10,14 @@ public class PacketCodeC  {
 
     public static PacketCodeC INSTANCE = new PacketCodeC();
 
-    public ByteBuf encode(ByteBufAllocator alloc, Packet packet) {
-        // 1. 创建 ByteBuf 对象
-        ByteBuf byteBuf = alloc.buffer();
-        // 2. 序列化 Java 对象
+    public ByteBuf encode(ByteBuf byteBuf, Packet packet) {
         byte[] bytes = Serializer.DEFAULT.serialize(packet);
-
-        // 3. 实际编码过程
         byteBuf.writeInt(MAGIC_NUMBER);
         byteBuf.writeByte(packet.getVersion());
         byteBuf.writeByte(Serializer.DEFAULT.getSerializerAlgorithm());
         byteBuf.writeByte(packet.getCommand());
         byteBuf.writeInt(bytes.length);
         byteBuf.writeBytes(bytes);
-
         return byteBuf;
     }
 
