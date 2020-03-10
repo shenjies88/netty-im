@@ -12,6 +12,10 @@ public class LoginResponsePacket extends Packet {
 
     private String reason;
 
+    private String userName;
+
+    private String userId;
+
     public boolean isSuccess() {
         return success;
     }

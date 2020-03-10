@@ -9,7 +9,7 @@ public class AuthHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         if (!LoginUtil.hasLogin(ctx.channel())) {
-            ctx.channel().close();
+            ctx.close();
         } else {
             ctx.pipeline().remove(this);
             super.channelRead(ctx, msg);
