@@ -1,9 +1,9 @@
 package com.shenjies88.practice.handler;
 
+import com.shenjies88.practice.impl.Session;
 import com.shenjies88.practice.packet.ListGroupMembersRequestPacket;
 import com.shenjies88.practice.packet.ListGroupMembersResponsePacket;
-import com.shenjies88.practice.impl.Session;
-import com.shenjies88.practice.utils.LoginUtil;
+import com.shenjies88.practice.utils.SessionUtil;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -18,12 +18,12 @@ public class ListGroupMembersRequestHandler extends SimpleChannelInboundHandler<
     protected void channelRead0(ChannelHandlerContext ctx, ListGroupMembersRequestPacket requestPacket) {
         // 1. 获取群的 ChannelGroup
         String groupId = requestPacket.getGroupId();
-        ChannelGroup channelGroup = LoginUtil.getChannelGroup(groupId);
+        ChannelGroup channelGroup = SessionUtil.getChannelGroup(groupId);
 
         // 2. 遍历群成员的 channel，对应的 session，构造群成员的信息
         List<Session> sessionList = new ArrayList<>();
         for (Channel channel : channelGroup) {
-            Session session = LoginUtil.getSession(channel);
+            Session session = SessionUtil.getSession(channel);
             sessionList.add(session);
         }
 

@@ -3,7 +3,7 @@ package com.shenjies88.practice;
 import com.shenjies88.practice.command.LoginConsoleCommand;
 import com.shenjies88.practice.handler.*;
 import com.shenjies88.practice.manage.ConsoleCommandManager;
-import com.shenjies88.practice.utils.LoginUtil;
+import com.shenjies88.practice.utils.SessionUtil;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -29,6 +29,7 @@ public class NettyClient {
                         ch.pipeline().addLast(new CreateGroupResponseHandler());
                         ch.pipeline().addLast(new JoinGroupResponseHandler());
                         ch.pipeline().addLast(new ListGroupMembersResponseHandler());
+                        ch.pipeline().addLast(new GroupMessageResponseHandler());
                         ch.pipeline().addLast(new QuitGroupRequestHandler());
                         ch.pipeline().addLast(new MessageResponseHandler());
                         ch.pipeline().addLast(new PacketEncoder());
@@ -51,7 +52,7 @@ public class NettyClient {
 
         new Thread(() -> {
             while (!Thread.interrupted()) {
-                if (!LoginUtil.hasLogin(channel)) {
+                if (!SessionUtil.hasLogin(channel)) {
                     loginConsoleCommand.exec(scanner, channel);
                     waitForLoginResponse();
                 } else {

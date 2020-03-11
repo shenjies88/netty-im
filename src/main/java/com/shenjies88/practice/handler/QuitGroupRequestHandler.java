@@ -2,7 +2,7 @@ package com.shenjies88.practice.handler;
 
 import com.shenjies88.practice.packet.QuitGroupRequestPacket;
 import com.shenjies88.practice.packet.QuitGroupResponsePacket;
-import com.shenjies88.practice.utils.LoginUtil;
+import com.shenjies88.practice.utils.SessionUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.group.ChannelGroup;
@@ -12,7 +12,7 @@ public class QuitGroupRequestHandler extends SimpleChannelInboundHandler<QuitGro
     protected void channelRead0(ChannelHandlerContext ctx, QuitGroupRequestPacket requestPacket) {
         // 1. 获取群对应的 channelGroup，然后将当前用户的 channel 移除
         String groupId = requestPacket.getGroupId();
-        ChannelGroup channelGroup = LoginUtil.getChannelGroup(groupId);
+        ChannelGroup channelGroup = SessionUtil.getChannelGroup(groupId);
         channelGroup.remove(ctx.channel());
 
         // 2. 构造退群响应发送给客户端

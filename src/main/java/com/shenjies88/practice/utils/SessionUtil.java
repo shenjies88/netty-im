@@ -8,7 +8,7 @@ import io.netty.channel.group.ChannelGroup;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class LoginUtil {
+public class SessionUtil {
 
     public static void markAsLogin(Channel channel) {
         channel.attr(Attributes.LOGIN).set(true);

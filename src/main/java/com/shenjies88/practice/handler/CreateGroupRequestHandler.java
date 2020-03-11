@@ -2,7 +2,7 @@ package com.shenjies88.practice.handler;
 
 import com.shenjies88.practice.packet.CreateGroupRequestPacket;
 import com.shenjies88.practice.packet.CreateGroupResponsePacket;
-import com.shenjies88.practice.utils.LoginUtil;
+import com.shenjies88.practice.utils.SessionUtil;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -24,10 +24,10 @@ public class CreateGroupRequestHandler extends SimpleChannelInboundHandler<Creat
 
         // 2. 筛选出待加入群聊的用户的 channel 和 userName
         for (String userId : userIdList) {
-            Channel channel = LoginUtil.getChannel(userId);
+            Channel channel = SessionUtil.getChannel(userId);
             if (channel != null) {
                 channelGroup.add(channel);
-                userNameList.add(LoginUtil.getSession(channel).getUserName());
+                userNameList.add(SessionUtil.getSession(channel).getUserName());
             }
         }
 
@@ -38,7 +38,7 @@ public class CreateGroupRequestHandler extends SimpleChannelInboundHandler<Creat
         createGroupResponsePacket.setUserIdList(userIdList);
         createGroupResponsePacket.setUserNameList(userNameList);
 
-        LoginUtil.setChannelGroup(createGroupResponsePacket.getGroupId(),channelGroup);
+        SessionUtil.setChannelGroup(createGroupResponsePacket.getGroupId(), channelGroup);
 
         // 4. 给每个客户端发送拉群通知
         channelGroup.writeAndFlush(createGroupResponsePacket);
