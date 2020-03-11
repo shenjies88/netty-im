@@ -20,7 +20,7 @@ public class LoginRequestHandler extends SimpleChannelInboundHandler<LoginReques
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LoginRequestPacket packet) {
-        ctx.channel().writeAndFlush(login(ctx, packet));
+        ctx.writeAndFlush(login(ctx, packet));
     }
 
     private LoginResponsePacket login(ChannelHandlerContext ctx, LoginRequestPacket packet) {
