@@ -16,6 +16,7 @@ public class LoginUtil {
 
     // userId -> channel 的映射
     private static final Map<String, Channel> userIdChannelMap = new ConcurrentHashMap<>();
+    private static final Map<String, ChannelGroup> groupIdChannelMap = new ConcurrentHashMap<>();
 
 
     public static void bindSession(Session session, Channel channel) {
@@ -43,8 +44,11 @@ public class LoginUtil {
         return userIdChannelMap.get(toUserId);
     }
 
-    //TODO 根据群id获取群管道
+    public static void setChannelGroup(String groupId, ChannelGroup channelGroup) {
+        groupIdChannelMap.put(groupId,channelGroup);
+    }
+
     public static ChannelGroup getChannelGroup(String groupId) {
-        return null;
+        return groupIdChannelMap.get(groupId);
     }
 }
