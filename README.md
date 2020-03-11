@@ -14,15 +14,15 @@
 
 - 服务端启动
 
-![avatar](img/server.jpg)
+![server.jpg](https://i.loli.net/2020/03/11/GXompFWPwi2OL7Y.png)
 
 - 客户端启动
 
-![avatar](img/client.jpg)
+![client.jpg](https://i.loli.net/2020/03/11/S7k3xHbuhoGwsrn.png)
 
 - 多个客户端
 
-![avatar](img/mult-client.jpg)
+![mult-client.jpg](https://i.loli.net/2020/03/11/9I7ixpb58K4kOJE.png)
 
 ### Jar包启动方式
 
