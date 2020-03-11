@@ -26,13 +26,13 @@
 
 ### Jar包启动方式
 
-- mvn clean package -DskipTests
+- mvn clean package
 
 - 服务端
-  - java -jar target/netty-im-1.0-SNAPSHOT.jar com/shenjies88/practice/NettyServer.java
+  - java -cp target/netty-im-jar-with-dependencies.jar com/shenjies88/practice/NettyServer
 
 - 客户端
-   - java -jar target/netty-im-1.0-SNAPSHOT.jar com/shenjies88/practice/NettyClient.java
+   - java -cp target/netty-im-jar-with-dependencies.jar com/shenjies88/practice/NettyClient
 
 
 ### 操作指令
