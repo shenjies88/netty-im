@@ -1,7 +1,7 @@
 package com.shenjies88.practice.handler;
 
-import com.shenjies88.practice.impl.MessageRequestPacket;
-import com.shenjies88.practice.impl.MessageResponsePacket;
+import com.shenjies88.practice.packet.MessageRequestPacket;
+import com.shenjies88.practice.packet.MessageResponsePacket;
 import com.shenjies88.practice.impl.Session;
 import com.shenjies88.practice.utils.LoginUtil;
 import io.netty.channel.Channel;

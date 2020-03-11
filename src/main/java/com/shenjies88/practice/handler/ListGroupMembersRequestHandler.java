@@ -1,7 +1,7 @@
 package com.shenjies88.practice.handler;
 
-import com.shenjies88.practice.impl.ListGroupMembersRequestPacket;
-import com.shenjies88.practice.impl.ListGroupMembersResponsePacket;
+import com.shenjies88.practice.packet.ListGroupMembersRequestPacket;
+import com.shenjies88.practice.packet.ListGroupMembersResponsePacket;
 import com.shenjies88.practice.impl.Session;
 import com.shenjies88.practice.utils.LoginUtil;
 import io.netty.channel.Channel;

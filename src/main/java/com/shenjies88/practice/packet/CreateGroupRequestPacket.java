@@ -1,4 +1,4 @@
-package com.shenjies88.practice.impl;
+package com.shenjies88.practice.packet;
 
 import com.shenjies88.practice.interfaces.Command;
 import com.shenjies88.practice.interfaces.Packet;
@@ -8,6 +8,7 @@ import java.util.List;
 
 @Data
 public class CreateGroupRequestPacket extends Packet {
+
     private List<String> userIdList;
 
     @Override

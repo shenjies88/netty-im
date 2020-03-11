@@ -1,7 +1,7 @@
 package com.shenjies88.practice.handler;
 
-import com.shenjies88.practice.impl.CreateGroupRequestPacket;
-import com.shenjies88.practice.impl.CreateGroupResponsePacket;
+import com.shenjies88.practice.packet.CreateGroupRequestPacket;
+import com.shenjies88.practice.packet.CreateGroupResponsePacket;
 import com.shenjies88.practice.utils.LoginUtil;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;

@@ -16,6 +16,7 @@ public class LoginUtil {
 
     // userId -> channel 的映射
     private static final Map<String, Channel> userIdChannelMap = new ConcurrentHashMap<>();
+    // groupId -> groupChannel 的映射
     private static final Map<String, ChannelGroup> groupIdChannelMap = new ConcurrentHashMap<>();
 
 

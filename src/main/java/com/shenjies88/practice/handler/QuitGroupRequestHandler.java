@@ -1,7 +1,7 @@
 package com.shenjies88.practice.handler;
 
-import com.shenjies88.practice.impl.QuitGroupRequestPacket;
-import com.shenjies88.practice.impl.QuitGroupResponsePacket;
+import com.shenjies88.practice.packet.QuitGroupRequestPacket;
+import com.shenjies88.practice.packet.QuitGroupResponsePacket;
 import com.shenjies88.practice.utils.LoginUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

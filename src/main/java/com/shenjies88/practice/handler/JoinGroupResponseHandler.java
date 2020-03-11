@@ -1,6 +1,6 @@
 package com.shenjies88.practice.handler;
 
-import com.shenjies88.practice.impl.JoinGroupResponsePacket;
+import com.shenjies88.practice.packet.JoinGroupResponsePacket;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 

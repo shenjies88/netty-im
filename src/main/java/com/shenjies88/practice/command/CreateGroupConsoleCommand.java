@@ -1,6 +1,6 @@
 package com.shenjies88.practice.command;
 
-import com.shenjies88.practice.impl.CreateGroupRequestPacket;
+import com.shenjies88.practice.packet.CreateGroupRequestPacket;
 import com.shenjies88.practice.interfaces.ConsoleCommand;
 import io.netty.channel.Channel;
 
