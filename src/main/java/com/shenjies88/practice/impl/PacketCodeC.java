@@ -90,6 +90,10 @@ public class PacketCodeC  {
                 return GroupMessageRequestPacket.class;
             case 14:
                 return GroupMessageResponsePacket.class;
+            case 15:
+                return HeartBeatRequestPacket.class;
+            case 16:
+                return HeartBeatResponsePacket.class;
             default:
                 return Packet.class;
         }

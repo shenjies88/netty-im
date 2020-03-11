@@ -2,19 +2,15 @@ package com.shenjies88.practice.handler;
 
 import com.shenjies88.practice.impl.PacketCodeC;
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
-@ChannelHandler.Sharable
 public class Spliter extends LengthFieldBasedFrameDecoder {
 
     private static final int LENGTH_FIELD_OFFSET = 7;
     private static final int LENGTH_FIELD_LENGTH = 4;
 
-    public static final Spliter INSTANCE = new Spliter();
-
-    protected Spliter() {
+    public Spliter() {
         super(Integer.MAX_VALUE, LENGTH_FIELD_OFFSET, LENGTH_FIELD_LENGTH);
     }
 
@@ -22,7 +18,7 @@ public class Spliter extends LengthFieldBasedFrameDecoder {
     protected Object decode(ChannelHandlerContext ctx, ByteBuf in) throws Exception {
         // 屏蔽非本协议的客户端
         if (in.getInt(in.readerIndex()) != PacketCodeC.MAGIC_NUMBER) {
-            ctx.close();
+            ctx.channel().close();
             return null;
         }
         return super.decode(ctx, in);

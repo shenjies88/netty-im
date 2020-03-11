@@ -1,6 +1,8 @@
 package com.shenjies88.practice;
 
 import com.shenjies88.practice.command.LoginConsoleCommand;
+import com.shenjies88.practice.handler.HeartBeatTimerHandler;
+import com.shenjies88.practice.handler.IMIdleStateHandler;
 import com.shenjies88.practice.handler.PacketCodecHandler;
 import com.shenjies88.practice.handler.Spliter;
 import com.shenjies88.practice.handler.response.*;
@@ -25,7 +27,9 @@ public class NettyClient {
                 .channel(NioSocketChannel.class)
                 .handler(new ChannelInitializer<SocketChannel>() {
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(Spliter.INSTANCE);
+                        ch.pipeline().addLast(new IMIdleStateHandler());
+                        ch.pipeline().addLast(new HeartBeatTimerHandler());
+                        ch.pipeline().addLast(new Spliter());
                         ch.pipeline().addLast(PacketCodecHandler.INSTANCE);
                         ch.pipeline().addLast(LoginResponseHandler.INSTANCE);
                         ch.pipeline().addLast(CreateGroupResponseHandler.INSTANCE);
