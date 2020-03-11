@@ -35,10 +35,10 @@ public class CreateGroupRequestHandler extends SimpleChannelInboundHandler<Creat
         CreateGroupResponsePacket createGroupResponsePacket = new CreateGroupResponsePacket();
         createGroupResponsePacket.setSuccess(true);
         createGroupResponsePacket.setGroupId(UUID.randomUUID().toString());
+        createGroupResponsePacket.setUserIdList(userIdList);
         createGroupResponsePacket.setUserNameList(userNameList);
 
-        createGroupResponsePacket.setChannelGroup(channelGroup);
-        LoginUtil.setChannelGroup(createGroupResponsePacket.getGroupId(),createGroupResponsePacket.getChannelGroup());
+        LoginUtil.setChannelGroup(createGroupResponsePacket.getGroupId(),channelGroup);
 
         // 4. 给每个客户端发送拉群通知
         channelGroup.writeAndFlush(createGroupResponsePacket);
