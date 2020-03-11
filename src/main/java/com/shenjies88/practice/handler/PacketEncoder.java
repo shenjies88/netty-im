@@ -3,10 +3,17 @@ package com.shenjies88.practice.handler;
 import com.shenjies88.practice.impl.PacketCodeC;
 import com.shenjies88.practice.interfaces.Packet;
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 
+@ChannelHandler.Sharable
 public class PacketEncoder extends MessageToByteEncoder<Packet> {
+
+    public static final PacketEncoder INSTANCE = new PacketEncoder();
+
+    protected PacketEncoder() {
+    }
 
     @Override
     protected void encode(ChannelHandlerContext ctx, Packet packet, ByteBuf out) {

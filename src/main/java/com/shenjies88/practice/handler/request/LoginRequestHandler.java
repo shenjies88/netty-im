@@ -1,18 +1,26 @@
-package com.shenjies88.practice.handler;
+package com.shenjies88.practice.handler.request;
 
 import com.shenjies88.practice.impl.Session;
 import com.shenjies88.practice.packet.LoginRequestPacket;
 import com.shenjies88.practice.packet.LoginResponsePacket;
 import com.shenjies88.practice.utils.SessionUtil;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 import java.util.UUID;
 
+@ChannelHandler.Sharable
 public class LoginRequestHandler extends SimpleChannelInboundHandler<LoginRequestPacket> {
+
+    public static final LoginRequestHandler INSTANCE = new LoginRequestHandler();
+
+    protected LoginRequestHandler() {
+    }
+
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LoginRequestPacket packet) {
-        ctx.channel().writeAndFlush(login(ctx,packet));
+        ctx.channel().writeAndFlush(login(ctx, packet));
     }
 
     private LoginResponsePacket login(ChannelHandlerContext ctx, LoginRequestPacket packet) {

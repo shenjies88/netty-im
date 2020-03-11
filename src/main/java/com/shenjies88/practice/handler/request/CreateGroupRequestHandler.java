@@ -1,9 +1,10 @@
-package com.shenjies88.practice.handler;
+package com.shenjies88.practice.handler.request;
 
 import com.shenjies88.practice.packet.CreateGroupRequestPacket;
 import com.shenjies88.practice.packet.CreateGroupResponsePacket;
 import com.shenjies88.practice.utils.SessionUtil;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.group.ChannelGroup;
@@ -13,7 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@ChannelHandler.Sharable
 public class CreateGroupRequestHandler extends SimpleChannelInboundHandler<CreateGroupRequestPacket> {
+
+    public static final CreateGroupRequestHandler INSTANCE = new CreateGroupRequestHandler();
+
+    private CreateGroupRequestHandler() {
+
+    }
+
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, CreateGroupRequestPacket createGroupRequestPacket) {
         List<String> userIdList = createGroupRequestPacket.getUserIdList();

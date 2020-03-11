@@ -1,14 +1,23 @@
-package com.shenjies88.practice.handler;
+package com.shenjies88.practice.handler.response;
 
 import com.shenjies88.practice.impl.Session;
 import com.shenjies88.practice.packet.LoginResponsePacket;
 import com.shenjies88.practice.utils.SessionUtil;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 import java.util.Date;
 
-public class LoginResponseHandler  extends SimpleChannelInboundHandler<LoginResponsePacket> {
+@ChannelHandler.Sharable
+public class LoginResponseHandler extends SimpleChannelInboundHandler<LoginResponsePacket> {
+
+    public static final LoginResponseHandler INSTANCE = new LoginResponseHandler();
+
+    private LoginResponseHandler() {
+
+    }
+
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LoginResponsePacket packet) throws Exception {
         if (packet.isSuccess()) {

@@ -1,10 +1,18 @@
-package com.shenjies88.practice.handler;
+package com.shenjies88.practice.handler.response;
 
 import com.shenjies88.practice.packet.JoinGroupResponsePacket;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
+@ChannelHandler.Sharable
 public class JoinGroupResponseHandler extends SimpleChannelInboundHandler<JoinGroupResponsePacket> {
+
+    public static final JoinGroupResponseHandler INSTANCE = new JoinGroupResponseHandler();
+
+    private JoinGroupResponseHandler() {
+
+    }
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, JoinGroupResponsePacket responsePacket) {

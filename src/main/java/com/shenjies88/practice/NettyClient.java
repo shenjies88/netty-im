@@ -1,7 +1,10 @@
 package com.shenjies88.practice;
 
 import com.shenjies88.practice.command.LoginConsoleCommand;
-import com.shenjies88.practice.handler.*;
+import com.shenjies88.practice.handler.PacketDecoder;
+import com.shenjies88.practice.handler.PacketEncoder;
+import com.shenjies88.practice.handler.Spliter;
+import com.shenjies88.practice.handler.response.*;
 import com.shenjies88.practice.manage.ConsoleCommandManager;
 import com.shenjies88.practice.utils.SessionUtil;
 import io.netty.bootstrap.Bootstrap;
@@ -23,16 +26,15 @@ public class NettyClient {
                 .channel(NioSocketChannel.class)
                 .handler(new ChannelInitializer<SocketChannel>() {
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new Spliter());
-                        ch.pipeline().addLast(new PacketDecoder());
-                        ch.pipeline().addLast(new LoginResponseHandler());
-                        ch.pipeline().addLast(new CreateGroupResponseHandler());
-                        ch.pipeline().addLast(new JoinGroupResponseHandler());
-                        ch.pipeline().addLast(new ListGroupMembersResponseHandler());
-                        ch.pipeline().addLast(new GroupMessageResponseHandler());
-                        ch.pipeline().addLast(new QuitGroupRequestHandler());
-                        ch.pipeline().addLast(new MessageResponseHandler());
-                        ch.pipeline().addLast(new PacketEncoder());
+                        ch.pipeline().addLast(Spliter.INSTANCE);
+                        ch.pipeline().addLast(PacketDecoder.INSTANCE);
+                        ch.pipeline().addLast(LoginResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(CreateGroupResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(JoinGroupResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(ListGroupMembersResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(GroupMessageResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(MessageResponseHandler.INSTANCE);
+                        ch.pipeline().addLast(PacketEncoder.INSTANCE);
                     }
                 });
 
